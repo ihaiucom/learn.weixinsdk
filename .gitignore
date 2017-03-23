@@ -1,0 +1,6 @@
+Game/Library
+Game/obj
+Game/build/ios
+Game/build/android/ihaiu
+!Game/build/android/ihaiu/src
+!Game/build/android/ihaiu/libs/wechat-sdk-android-with-mta-1.0.2.jar
