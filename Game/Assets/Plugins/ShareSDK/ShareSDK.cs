@@ -8,7 +8,8 @@ public class ShareSDK
 {
     public static class AppId
     {
-        public static string WeiXin = "wx339fa674668b8bb0";
+        public static string WeiXin = "wx0b34173e8d4b4ef7";
+        public static string QQ = "1105537897";
     }
 
     public static class Channel
@@ -27,8 +28,8 @@ public class ShareSDK
         public const int FUNID_WeiXin_Timeline      = 12;
 
         public const int FUNID_QQ_Session           = 21;
-        public const int FUNID_QQ_Qzone             = 21;
-        public const int FUNID_QQ_Weibo             = 21;
+        public const int FUNID_QQ_Qzone             = 22;
+        public const int FUNID_QQ_Weibo             = 23;
 
         public const int FUNID_SinaWeibo_Session    = 31;
         public const int FUNID_SinaWeibo_Timeline   = 32;
@@ -53,6 +54,9 @@ public class ShareSDK
         return _ShareSDKSupportChannel(channel);
     }
 
+    public static void InitApp(string appName)
+    {
+    }
 
     public static void Init(int channel, string appId)
     {
@@ -73,6 +77,11 @@ public class ShareSDK
         return androidJavaClass.CallStatic<bool>("supportChannel", channel);
     }
 
+    public static void InitApp(string appName)
+    {
+        AndroidJavaClass    androidJavaClass = new AndroidJavaClass("com.ihaiu.share.ShareSDK");
+        androidJavaClass.CallStatic("initApp", appName);
+    }
 
     public static void Init(int channel, string appId)
     {
@@ -92,6 +101,10 @@ public class ShareSDK
         return false;
     }
 
+
+    public static void InitApp(string appName)
+    {
+    }
 
     public static void Init(int channel, string appId)
     {

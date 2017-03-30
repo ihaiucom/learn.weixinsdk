@@ -21,4 +21,22 @@ public class Demo : MonoBehaviour {
     {
         ShareSDK.SendLink(ShareSDK.FunId.FUNID_WeiXin_Timeline);
     }
+
+
+    public void Init_QQ()
+    {
+        ShareSDK.Init(ShareSDK.Channel.CHANNEL_QQ, ShareSDK.AppId.QQ);
+    }
+
+    public void SendLink_QQ_Friend()
+    {
+        ShareSDK.SendLink(ShareSDK.FunId.FUNID_QQ_Session);
+    }
+
+
+
+    public void SendLink_QQ_Timeline()
+    {
+        ShareSDK.SendLink(ShareSDK.FunId.FUNID_QQ_Qzone);
+    }
 }
