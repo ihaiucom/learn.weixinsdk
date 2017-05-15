@@ -126,7 +126,7 @@ public class ShareSDK
 
     public static void SendLink(int funId)
     {
-        SendLink(funId, "爱海游", "爱海游博客，用作学习游戏开发技术的笔记和技术分享。", "http://blog.ihaiu.com", "http://blog.ihaiu.com/assets/icon/icon76_white.png");
+        SendLink(funId, "爱海游", "爱海游博客，用作学习游戏开发技术的笔记和技术分享。", "http://blog.ihaiu.com", "http://blog.ihaiu.com/assets/icon/icon120.png");
     }
 
 

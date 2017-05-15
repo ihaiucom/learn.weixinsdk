@@ -8,8 +8,9 @@
 
 #import "UnityAppController.h"
 #import "WXApi.h"
+#import <TencentOpenAPI/TencentOAuth.h>
 
-@interface ShareAppController : UnityAppController<WXApiDelegate>
+@interface ShareAppController : UnityAppController<WXApiDelegate, TencentSessionDelegate>
 
 
 

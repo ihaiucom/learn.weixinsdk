@@ -9,6 +9,8 @@
 
 #import <Foundation/Foundation.h>
 #import "WXApi.h"
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "ShareAppController.h"
 
 extern "C"{
     bool _ShareSDKSupportChannel(int channel);
@@ -37,6 +39,8 @@ extern "C"{
     
     @public
     NSDictionary *channelInitResultDict;
+    @protected
+    ShareAppController *_delegate;
     
 }
 
@@ -44,6 +48,10 @@ extern "C"{
 +(void)SetInstance:(id)instance;
 
 @property NSDictionary *channelInitResultDict;
+@property (retain, nonatomic) TencentOAuth *tencentOAuth;
+
+-(ShareAppController*)myDelegate;
+-(void)setMyDelegate:(ShareAppController *)delegate;
 
 -(bool)ShareSDKSupportChannel:(int)channel;
 -(void)ShareSDKInit:(int)channel andAppId:(const char*)appId;

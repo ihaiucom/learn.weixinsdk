@@ -8,6 +8,7 @@
 
 #import "ShareAppController.h"
 #import "ShareSDK.h"
+#import <TencentOpenAPI/TencentOAuth.h>
 
 // 指定启动文件类
 IMPL_APP_CONTROLLER_SUBCLASS(ShareAppController)
@@ -23,6 +24,7 @@ IMPL_APP_CONTROLLER_SUBCLASS(ShareAppController)
     [super application:application didFinishLaunchingWithOptions:launchOptions];
     
     [ShareSDK SetInstance:[[ShareSDK alloc] init]];
+    [[ShareSDK Instance] setMyDelegate: self];
     
     return YES;
 }
@@ -32,14 +34,24 @@ IMPL_APP_CONTROLLER_SUBCLASS(ShareAppController)
 
 
 //======================================
-// 微信分享SDK
+// 分享SDK
 //--------------------------------------
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    
     NSLog(@"handleOpenURL url= %@" , url);
-    return  [WXApi handleOpenURL:url delegate:self];
+    if([[url absoluteString] hasPrefix:@"wx"])
+    {
+        return  [WXApi handleOpenURL:url delegate:self];
+    }
+    
+    if([[url absoluteString] hasPrefix:@"tencent"])
+    {
+        return [TencentOAuth HandleOpenURL:url];
+    }
+    
+    return YES;
+
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
@@ -52,11 +64,40 @@ IMPL_APP_CONTROLLER_SUBCLASS(ShareAppController)
         NSLog(@"url %@ isSuc %d",url,isSuc == YES ? 1 : 0);
         return  isSuc;
     }
+    
+    if([[url absoluteString] hasPrefix:@"tencent"])
+    {
+        NSLog(@"openURL url=%@, sourceApplication=%@, annotation=%@" , url, sourceApplication, annotation);
+        BOOL isSuc = [TencentOAuth HandleOpenURL:url];
+        NSLog(@"url %@ isSuc %d",url,isSuc == YES ? 1 : 0);
+        return  isSuc;
+    }
+    
     return YES;
 }
 
 
 
+//======================================
+// QQ分享SDK
+//--------------------------------------
+
+- (BOOL)tencentNeedPerformIncrAuth:(TencentOAuth *)tencentOAuth withPermissions:(NSArray *)permissions
+{
+    return YES;
+}
+
+
+- (BOOL)tencentNeedPerformReAuth:(TencentOAuth *)tencentOAuth
+{
+    return YES;
+}
+
+
+
+//======================================
+// 微信分享SDK
+//--------------------------------------
 -(void) onReq:(BaseReq*)req
 {
     if([req isKindOfClass:[GetMessageFromWXReq class]])
