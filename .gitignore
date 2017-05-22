@@ -1,13 +1,7 @@
 Game/Library
 Game/Temp
 Game/obj
-Game/build/ios
-Game/build/android/ihaiu
-!Game/build/android/ihaiu/src
-!Game/build/android/ihaiu/libs/wechat-sdk-android-with-mta-1.0.2.jar
-!Game/build/android/ihaiu/src/
-!Game/build/android/ihaiu/src/*
-!Game/build/android/ihaiu/libs/
-!Game/build/android/ihaiu/libs/*
-!Game/build/ios/Frameworks/Plugins/
-!Game/build/ios/Frameworks/Plugins/*
+Game/build/ios/build
+Game/build/ios/Classes
+Game/build/ios/Data
+Game/build/android/ihaiu/assets/bin
