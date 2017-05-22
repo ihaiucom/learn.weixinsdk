@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Plugins/ShareSDK/ShareSDK.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Editor/BuildSetting.cs">
     <Files>
+      <File FileName="Assets/Demo.cs" Line="33" Column="23" />
       <File FileName="Assets/Plugins/Android/AndroidManifest.xml" Line="1" Column="1" />
-      <File FileName="Assets/Editor/BuildSetting.cs" Line="1" Column="1" />
-      <File FileName="Assets/Demo.cs" Line="1" Column="1" />
-      <File FileName="Assets/Plugins/ShareSDK/ShareSDK.cs" Line="11" Column="58" />
+      <File FileName="Assets/Editor/BuildSetting.cs" Line="129" Column="6" />
+      <File FileName="Assets/Plugins/ShareSDK/ShareSDK.cs" Line="35" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
